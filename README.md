@@ -1,6 +1,7 @@
 📂 Cadastro de Restaurantes
 
-    Este é um projeto simples de aplicação web para cadastro, listagem, consulta e exclusão de restaurantes. O backend é implementado em Node.js usando Express, e os dados são armazenados em um banco PostgreSQL.
+    Este é um projeto simples de aplicação web para cadastro, listagem, consulta e exclusão de restaurantes. 
+    O backend é implementado em Node.js usando Express, e os dados são armazenados em um banco PostgreSQL.
 
 🛠 Tecnologias utilizadas
 
