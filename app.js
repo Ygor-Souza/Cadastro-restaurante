@@ -8,7 +8,7 @@ const Pool = require("pg").Pool;
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  port: 5432,
+  port: 5433,
   database: "Restaurantes",
   password: "postgres",
 });
@@ -22,7 +22,7 @@ app.use(
 //rotas:
 
 app.get("/", function (req, res) {
-  res.redirect("/resultado");
+  res.redirect("/cadastroRestaurantes");
 });
 
 app.get("/cadastroRestaurantes", function (req, res) {
@@ -61,6 +61,7 @@ app.get("/resultado", function (req, res) {
             th, td {border: 1px solid #ccc; padding: 8px; text-align: left;}
             th { background-color: #f2f2f2;}
             </style>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         </head>
         <body>
             <h1>Lista de Restaurantes</h1>
@@ -95,15 +96,19 @@ app.get("/resultado", function (req, res) {
                   <li><a href="/cadastroRestaurantes">Cadastrar Restaurante</a></li>
 
                   <form id="formConsulta1">
-                      <label for="id1">Consultar Restaurante por ID</label>
-                      <input type="number" id="id1" name="id2" required />
-                      <button type="submit">Consultar</button>
+                  <label for="id1">Consultar Restaurante por ID</label>
+
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  </div>
+
+                      <button type="submit" class="btn btn-primary">Consultar</button>
                   </form>
 
                   <script>
                     document.getElementById("formConsulta1").addEventListener("submit", function (e) {
                         e.preventDefault();
-                        const id1 = document.getElementById("id1").value;
+                        const id1 = document.getElementById("floatingInput").value;
                         window.location.href = "/consultar-restaurante/" + id1;
                       });
                   </script>
@@ -112,7 +117,7 @@ app.get("/resultado", function (req, res) {
                   <form id="formConsulta2" method="post">
                       <label for="id2">Excluir Restaurante por ID</label>
                       <input type="number" id="id2" name="id2" required />
-                      <button type="submit">Excluir</button>
+                      <button type="submit" class="btn btn-primary">Consultar</button>
                   </form>
 
                   <script>
